@@ -1,6 +1,6 @@
 /*
  * Activity 2.5.2
- *
+ * Alessandra Yu
  * A Board class the PhraseSolverGame
  */
 import java.util.Scanner;
@@ -14,6 +14,14 @@ public class  Board
 
   /* your code here - constructor(s) */ 
   
+  public Board() {
+    // 10/28/2023 - 2.5.2 Step 15 : 
+    solvedPhrase = "";
+    phrase = loadPhrase(); 
+    setLetterValue();
+
+    System.out.println("Phrase: " + phrase); // temp
+  }
   /* your code here - accessor(s) */
   
   /* your code here - mutator(s)  */

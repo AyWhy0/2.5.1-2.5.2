@@ -1,6 +1,6 @@
 /*
  * Activity 2.5.2
- *
+ * Alessandra Yu
  *  The PhraseSolver class the PhraseSolverGame
  */
 import java.util.Scanner;
@@ -8,9 +8,19 @@ import java.util.Scanner;
 public class PhraseSolver
 {
   /* your code here - attributes */
+  private Player player1;
+  private Player player2;
+  private Board board;
+  private boolean solved;
 
   /* your code here - constructor(s) */ 
-
+  public PhraseSolver() {
+    // 10/28/2023 - 2.5.2 Step 16
+    player1 = new Player();
+    player2 = new Player();
+    board = new Board();
+    solved = false;
+  }
   /* your code here - accessor(s) */
   
   /* your code here - mutator(s)  */

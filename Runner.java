@@ -1,6 +1,6 @@
 /*
  * Activity 2.5.2
- *
+ * Alessandra Yu
  * The runner for the PhraseSolverGame
  */
 public class Runner
@@ -10,5 +10,4 @@ public class Runner
     PhraseSolver p = new PhraseSolver(); 
     p.play();
   }
-
 } 
