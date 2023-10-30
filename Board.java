@@ -23,9 +23,15 @@ public class  Board
     System.out.println("Phrase: " + phrase); // temp
   }
   /* your code here - accessor(s) */
-  
-  /* your code here - mutator(s)  */
+  // 10/30/2023 - 2.5.3 Step 2 : 
+  public int getLetterValue() {
+    return currentLetterValue;
+  } 
+  public String getSolvedPhrase() {
+    return solvedPhrase;
+  } 
 
+  /* your code here - mutator(s)  */
 
   /* ---------- provided code, do not modify ---------- */
   public void setLetterValue()
@@ -90,24 +96,46 @@ public class  Board
     return tempPhrase;
   }  
 
+  // 10/30/2023 - 2.5.3 Step 5 : 
+  /** Reveals the guessed letter in the solved phrase and returns if the letter was indeed inside the phrase.
+   * 
+   * Precondition:
+   *   The phrase exists and is not empty.
+   *   The parameter guess is one character long and is a letter.
+   * Postcondition: 
+   *   The instance solvedPhrase is populated with the guess revealed in the appropriate indexes
+   */
   public boolean guessLetter(String guess)
   {
+    // 10/30/2023 - 2.5.3 Step 3 : 
+
+    // initializes the letter as not found
     boolean foundLetter = false;
+    // initializes the variable used to replace the old solved phrase
     String newSolvedPhrase = "";
     
+    // loops through every letter in the phrase
     for (int i = 0; i < phrase.length(); i++)
     {
+      // if the letter in the phrase matches the guess, the letter is revealed in the solved phrase
       if (phrase.substring(i, i + 1).equals(guess))
       {
+        // reveals the letter
         newSolvedPhrase += guess + " ";
+        // indicates the letter was found in the phrase
         foundLetter = true;
       }
+      // otherwise, the solved phrase does not reveal the letter at the index.
       else
       {
+        // leaves the letter / character at the index blank
         newSolvedPhrase += solvedPhrase.substring(i * 2, i * 2 + 1) + " ";  
       }
     }
+
+    // the solved phrase is updated to reveal the guessed letter (if it is there)
     solvedPhrase = newSolvedPhrase;
+    // whether or not the letter was inside the phrase is returned
     return foundLetter;
   } 
 } 

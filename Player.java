@@ -21,6 +21,7 @@ public class Player
 
     points = 0;
     System.out.println("Welcome, " + name + "!");
+    sc.close();
   }
 
   public Player(String inputName) {
@@ -30,6 +31,22 @@ public class Player
   }
 
   /* your code here - accessor(s) */ 
-   
+  // 10/30/2023 - 2.5.3 Step 2 : 
+  public int getPoints() {
+    return points;
+  } 
+
+  public String getName() {
+    return name;
+  } 
+
   /* your code here - mutator(s) */ 
+  // 10/30/2023 - 2.5.3 Step 2 : 
+  public void setPoints() {
+
+  } 
+
+  public void setName() {
+
+  } 
 }
