@@ -30,7 +30,12 @@ public class  Board
   public String getSolvedPhrase() {
     return solvedPhrase;
   } 
-
+	
+  // 10/31/2023 - 2.5.4 Step 8 : 
+  public String getPhrase() {
+    return phrase;
+  }
+	
   /* your code here - mutator(s)  */
 
   /* ---------- provided code, do not modify ---------- */
