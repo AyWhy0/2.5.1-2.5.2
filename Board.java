@@ -6,37 +6,45 @@
 import java.util.Scanner;
 import java.io.File;
 
+
 public class  Board
 {
   private String solvedPhrase;
   private String phrase;
-  private int currentLetterValue; 
+  private int currentLetterValue;
 
-  /* your code here - constructor(s) */ 
-  
+
+  /* your code here - constructor(s) */
+ 
   public Board() {
-    // 10/28/2023 - 2.5.2 Step 15 : 
+    // 10/28/2023 - 2.5.2 Step 15 :
     solvedPhrase = "";
-    phrase = loadPhrase(); 
+    phrase = loadPhrase();
     setLetterValue();
+
 
     System.out.println("Phrase: " + phrase); // temp
   }
   /* your code here - accessor(s) */
-  // 10/30/2023 - 2.5.3 Step 2 : 
+
+
+  // 10/30/2023 - 2.5.3 Step 2 :
   public int getLetterValue() {
     return currentLetterValue;
-  } 
+  }
   public String getSolvedPhrase() {
     return solvedPhrase;
-  } 
-	
-  // 10/31/2023 - 2.5.4 Step 8 : 
+  }
+
+
+  // 10/31/2023 - 2.5.4 Step 8 :
   public String getPhrase() {
     return phrase;
   }
-	
+
+
   /* your code here - mutator(s)  */
+
 
   /* ---------- provided code, do not modify ---------- */
   public void setLetterValue()
@@ -44,6 +52,13 @@ public class  Board
     int randomInt = (int) ((Math.random() * 10) + 1) * 100;    
     currentLetterValue = randomInt;
   }
+
+
+  // 11/02/2023 - 2.5.4 Step 4 :
+  public void setPhrase() {
+    phrase = loadPhrase();
+  }
+
 
   public boolean isSolved(String guess)
   {
@@ -54,12 +69,13 @@ public class  Board
     return false;
   }
 
+
   private String loadPhrase()
   {
     String tempPhrase = "";
-    
+   
     int numOfLines = 0;
-    try 
+    try
     {
       Scanner sc = new Scanner(new File("phrases.txt"));
       while (sc.hasNextLine())
@@ -68,10 +84,10 @@ public class  Board
         numOfLines++;
       }
     } catch(Exception e) { System.out.println("Error reading or parsing phrases.txt"); }
-    
-		int randomInt = (int) ((Math.random() * numOfLines) + 1);
-    
-    try 
+   
+    int randomInt = (int) ((Math.random() * numOfLines) + 1);
+   
+    try
     {
       int count = 0;
       Scanner sc = new Scanner(new File("phrases.txt"));
@@ -85,7 +101,7 @@ public class  Board
         }
       }
     } catch (Exception e) { System.out.println("Error reading or parsing phrases.txt"); }
-    
+   
     for (int i = 0; i < tempPhrase.length(); i++)
     {
       if (tempPhrase.substring(i, i + 1).equals(" "))
@@ -97,28 +113,30 @@ public class  Board
         solvedPhrase += "_ ";
       }
     }  
-    
+   
     return tempPhrase;
   }  
 
-  // 10/30/2023 - 2.5.3 Step 5 : 
+
+  // 10/30/2023 - 2.5.3 Step 5 :
   /** Reveals the guessed letter in the solved phrase and returns if the letter was indeed inside the phrase.
-   * 
+   *
    * Precondition:
    *   The phrase exists and is not empty.
    *   The parameter guess is one character long and is a letter.
-   * Postcondition: 
+   * Postcondition:
    *   The instance solvedPhrase is populated with the guess revealed in the appropriate indexes
    */
   public boolean guessLetter(String guess)
   {
-    // 10/30/2023 - 2.5.3 Step 3 : 
+    // 10/30/2023 - 2.5.3 Step 3 :
+
 
     // initializes the letter as not found
     boolean foundLetter = false;
     // initializes the variable used to replace the old solved phrase
     String newSolvedPhrase = "";
-    
+   
     // loops through every letter in the phrase
     for (int i = 0; i < phrase.length(); i++)
     {
@@ -138,9 +156,10 @@ public class  Board
       }
     }
 
+
     // the solved phrase is updated to reveal the guessed letter (if it is there)
     solvedPhrase = newSolvedPhrase;
     // whether or not the letter was inside the phrase is returned
     return foundLetter;
-  } 
-} 
+  }
+}

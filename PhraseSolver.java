@@ -4,7 +4,7 @@
  *  The PhraseSolver class the PhraseSolverGame
  */
 import java.util.Scanner;
-  
+ 
 public class PhraseSolver
 {
   /* your code here - attributes */
@@ -13,7 +13,8 @@ public class PhraseSolver
   private Board board;
   private boolean solved;
 
-  /* your code here - constructor(s) */ 
+
+  /* your code here - constructor(s) */
   public PhraseSolver() {
     // 10/28/2023 - 2.5.2 Step 16
     player1 = new Player();
@@ -22,27 +23,63 @@ public class PhraseSolver
     solved = false;
   }
   /* your code here - accessor(s) */
-  
+ 
   /* your code here - mutator(s)  */
+
 
   public void play()
   {
+    // 11/02/2023 - 2.5.4 Step 5 :
     boolean solved = false;
-    int currentPlayer = 1;
+    Player currentPlayer = player1;
+
 
     Scanner input = new Scanner(System.in);
-    
-    boolean correct = true;
-    while (!solved) 
+   
+    String guess = "";    
+
+
+    while (!solved)
     {
-      
       /* your code here - game logic */
-      
-      
-      /* your code here - determine how game ends */
-      solved = true; 
-    } 
+      System.out.println(board.getSolvedPhrase());
+      System.out.println(currentPlayer.getName() + " guesses: ");
+      guess = input.nextLine();
+
+
+      if (board.isSolved(guess)) {
+
+
+        System.out.println(currentPlayer.getName() + " solved it!");
+        System.out.println(player1.getName() + ": " + player1.getPoints());
+        System.out.println(player2.getName() + ": " + player2.getPoints());
+
+
+        solved = true;
+        input.close();
+
+
+      } else if (board.guessLetter(guess)) {
+
+
+        currentPlayer.setPoints(board.getLetterValue());
+        board.setLetterValue();
+
+
+      } else {
+
+
+        if (currentPlayer.equals(player1)) {
+          currentPlayer = player2;
+        } else if (currentPlayer.equals(player2)) {
+          currentPlayer = player1;
+        }
+
+
+      }
+     
+    }
    
   }
-  
+ 
 }
