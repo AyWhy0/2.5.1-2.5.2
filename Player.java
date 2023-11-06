@@ -5,13 +5,15 @@
  */
 import java.util.Scanner;
 
+
 public class Player
 {
   /* your code here - attributes */
   private String name;
   private int points;
 
-  /* your code here - constructor(s) */ 
+
+  /* your code here - constructor(s) */
   public Player() {
     Scanner sc = new Scanner(System.in);
     while (name == null || name == "") {
@@ -19,10 +21,11 @@ public class Player
       name = sc.nextLine();
     }    
 
+
     points = 0;
     System.out.println("Welcome, " + name + "!");
-    sc.close();
   }
+
 
   public Player(String inputName) {
     name = inputName;
@@ -30,23 +33,29 @@ public class Player
     System.out.println("Welcome, " + name + "!");
   }
 
-  /* your code here - accessor(s) */ 
-  // 10/30/2023 - 2.5.3 Step 2 : 
+
+  /* your code here - accessor(s) */
+  // 10/30/2023 - 2.5.3 Step 2 :
   public int getPoints() {
     return points;
-  } 
+  }
+
 
   public String getName() {
     return name;
-  } 
+  }
 
-  /* your code here - mutator(s) */ 
-  // 10/30/2023 - 2.5.3 Step 2 : 
-  public void setPoints() {
 
-  } 
+  /* your code here - mutator(s) */
+  // 10/30/2023 - 2.5.3 Step 2 :
+  public void setPoints(int points) {
+    // 11/02/2023 - 2.5.4 Step 4 :
+    this.points += points;
+  }
 
-  public void setName() {
 
-  } 
+  public void setName(String name) {
+    // 11/02/2023 - 2.5.4 Step 4 :
+    this.name = name;
+  }
 }
