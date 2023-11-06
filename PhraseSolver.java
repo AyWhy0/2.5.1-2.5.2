@@ -55,7 +55,7 @@ public class PhraseSolver
 
         int newPoints = board.getLetterValue();
         currentPlayer.setPoints(newPoints);
-        System.out.println(currentPlayer.getName() + "gets +" + newPoints + " points!";
+        System.out.println(currentPlayer.getName() + "gets +" + newPoints + " points!");
         board.setLetterValue();
 
       } else {
