@@ -13,7 +13,6 @@ public class  Board
   private String phrase;
   private int currentLetterValue;
 
-
   /* your code here - constructor(s) */
  
   public Board() {
@@ -21,12 +20,9 @@ public class  Board
     solvedPhrase = "";
     phrase = loadPhrase();
     setLetterValue();
-
-
-    System.out.println("Phrase: " + phrase); // temp
   }
+  
   /* your code here - accessor(s) */
-
 
   // 10/30/2023 - 2.5.3 Step 2 :
   public int getLetterValue() {
@@ -36,15 +32,12 @@ public class  Board
     return solvedPhrase;
   }
 
-
   // 10/31/2023 - 2.5.4 Step 8 :
   public String getPhrase() {
     return phrase;
   }
 
-
   /* your code here - mutator(s)  */
-
 
   /* ---------- provided code, do not modify ---------- */
   public void setLetterValue()
@@ -53,12 +46,10 @@ public class  Board
     currentLetterValue = randomInt;
   }
 
-
   // 11/02/2023 - 2.5.4 Step 4 :
   public void setPhrase() {
     phrase = loadPhrase();
   }
-
 
   public boolean isSolved(String guess)
   {
@@ -68,7 +59,6 @@ public class  Board
     }
     return false;
   }
-
 
   private String loadPhrase()
   {
@@ -117,7 +107,6 @@ public class  Board
     return tempPhrase;
   }  
 
-
   // 10/30/2023 - 2.5.3 Step 5 :
   /** Reveals the guessed letter in the solved phrase and returns if the letter was indeed inside the phrase.
    *
@@ -155,7 +144,6 @@ public class  Board
         newSolvedPhrase += solvedPhrase.substring(i * 2, i * 2 + 1) + " ";  
       }
     }
-
 
     // the solved phrase is updated to reveal the guessed letter (if it is there)
     solvedPhrase = newSolvedPhrase;
